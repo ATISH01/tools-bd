@@ -1,0 +1,71 @@
+[
+    {
+        "_id":1,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "min-purse":"40",
+        "price":"45"
+
+    },
+
+    {
+        "_id":1,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "min-purse":"40",
+        "price":"45"
+
+    },
+
+    {
+        "_id":1,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "min-purse":"40",
+        "price":"45"
+
+    },
+
+    {
+        "_id":1,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "min-purse":"40",
+        "price":"45"
+
+    },
+
+    {
+        "_id":1,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "min-purse":"40",
+        "price":"45"
+
+    },
+
+    {
+        "_id":1,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "min-purse":"40",
+        "price":"45"
+
+    },
+
+    {
+        "_id":1,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "min-purse":"40",
+        "price":"45"
+
+    }
+]
