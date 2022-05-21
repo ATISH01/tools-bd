@@ -49,7 +49,8 @@ const Login = () => {
                         <p><small>{errors.email?.message}</small></p>
                         </div>
                         <input  {...register("password", { required: true })} type="text" placeholder="Password" class="input input-bordered input-accent w-full max-w-xs" />
-                        <button class="btn btn-outline"  type="submit">Button</button>
+                        <p>{eerror?.message && 'Invalid Email or Password'}</p>
+                        <button class="btn btn-outline"  type="submit">Login</button>
                     </form>
                     <p>New to doctors portal? <Link to='/signup'>Create new account</Link></p>
                     <div class="divider">OR</div>
