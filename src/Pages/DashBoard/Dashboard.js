@@ -7,7 +7,7 @@ const Dashboard = () => {
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content flex flex-col items-center justify-center">
                <Outlet></Outlet>
-                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                
 
             </div>
             <div class="drawer-side">
