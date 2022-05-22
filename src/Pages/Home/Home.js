@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from '../Shared/Footer';
 import AllProducts from './AllProducts';
+import AllReviews from './AllReviews';
 import Banner from './Banner';
 
 import Summery from './Summery';
@@ -13,6 +14,7 @@ const Home = () => {
             <AllProducts></AllProducts>
             <Summery></Summery>
             {/* <Reviews></Reviews> */}
+            <AllReviews></AllReviews>
             <Footer></Footer>
         </div>
     );

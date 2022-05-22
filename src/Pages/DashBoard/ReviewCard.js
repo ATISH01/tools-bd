@@ -14,7 +14,7 @@ const ReviewCard = ({ order }) => {
         const review = reviewRef.current.value;
         console.log( review,ratings,id);
         const data ={
-            review,ratings,id
+            itemName,review,ratings,id
         }
         const url = 'http://localhost:5000/reviews';
         
