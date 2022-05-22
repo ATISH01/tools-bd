@@ -36,6 +36,9 @@ const Login = () => {
     }
     const location = useLocation();
     const from = location?.state?.from.pathname || '/';
+    if(guser||euser){
+        navigate(from, { replace: true })
+    }
     
     
     return (

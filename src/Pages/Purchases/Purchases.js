@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 
 import { useParams } from 'react-router-dom';
+import auth from '../../firebse.init';
 
 const Purchases = () => {
+    const [user] = useAuthState(auth);
     const [plusError, setPlusError] = useState('');
     const [minusError, setMinusError] = useState('');
     const [singleItem, setSingleItem] = useState([])
@@ -21,9 +25,12 @@ const Purchases = () => {
 
         const i = singleItem.selected--;
         console.log(i);
-        if (i > 40) {
-            console.log(`{id:${i}}`);
-            console.log(singleItem);
+        const min = minPurse;
+        console.log(min);
+        if (i > min) {
+            // console.log(`{id:${i}}`);
+            console.log(i);
+
 
             const url = `http://localhost:5000/tools/${ID}`;
             fetch(url, {
@@ -47,7 +54,7 @@ const Purchases = () => {
 
     const plus = (ID) => {
         setMinusError('');
-        console.log('clicked');
+
         const i = singleItem.selected++;
         const max = availableItem;
         console.log(max);
@@ -65,7 +72,7 @@ const Purchases = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log('success', data);
+
                     setSingleItem({ ...singleItem, selected: singleItem.selected })
                 })
         }
@@ -79,8 +86,25 @@ const Purchases = () => {
         setInput(e.target.value);
         console.log(input); */
 
+    const { register, handleSubmit, reset, formState } = useForm()
+    const { errors } = formState;
+    const onSubmit = async userData => {
+        console.log(userData);
+        const url = 'http://localhost:5000/orders';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                
+            })
 
-
+    }
 
     return (
         <div class="hero min-h-screen bg-base-200 ">
@@ -107,25 +131,31 @@ const Purchases = () => {
                 </div>
                 <div >
                     <h1 class="text-2xl my-10 font-bold">Provide information to confirm Your Order</h1>
-                    <div class="card  w-full shadow-2xl bg-base-100">
+                    <form onSubmit={handleSubmit(onSubmit)} class="card  w-full shadow-2xl bg-base-100">
                         <div class="card-body">
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text">Name</span>
+                                    <span class="label-text">Item Name</span>
                                 </label>
-                                <input type="text" placeholder="Name" class="input input-bordered" />
+                                <input {...register("itemName", { required: true })} type="text" value={name} placeholder="Name" class="input input-bordered" />
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Customer Name</span>
+                                </label>
+                                <input {...register("customerName", { required: true })} type="text" value={user.displayName} placeholder="Name" class="input input-bordered" />
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <span class="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" class="input input-bordered" />
+                                <input {...register("email", { required: true })} value={user.email} type="text" placeholder="email" class="input input-bordered" />
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <span class="label-text">Phone</span>
                                 </label>
-                                <input type="text" placeholder="Phone" class="input input-bordered" />
+                                <input  {...register("phone", { required: true })} type="text" placeholder="Phone" class="input input-bordered input-accent w-full" />
                             </div>
                             <div class="form-control">
                                 <label class="label">
@@ -140,8 +170,8 @@ const Purchases = () => {
                                 <button class="btn btn-primary">Purchase</button>
                             </div>
                         </div>
-                    </div>
-                   
+                    </form>
+
                 </div>
             </div>
         </div>

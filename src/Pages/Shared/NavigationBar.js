@@ -7,9 +7,7 @@ import auth from '../../firebse.init';
 const NavigationBar = () => {
     const [user]=useAuthState(auth);
     const logout =()=>{
-        signOut(auth);
-        
-        
+        signOut(auth);  
     }
 
     const menu = <>
@@ -17,6 +15,9 @@ const NavigationBar = () => {
         <li><Link to='/review'>Review</Link></li>
         
         <li><Link to='/about'>About</Link></li>
+        {
+            user && <li><Link to='/dashboard'>DashBoard</Link></li>
+        }
         <li>
             {user ? <Link onClick={logout} to='/'>Log out</Link>:<Link to='/login'>Login</Link>}
         </li>
@@ -46,6 +47,7 @@ const NavigationBar = () => {
                     {menu}
                 </ul>
             </div>
+            
         </div>
     );
 };
