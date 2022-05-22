@@ -4,67 +4,103 @@
         "name":"Pilers",
         "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
         "availableItem":50,
-        "min-purse":"40",
+        "minPurse":"40",
         "price":"45"
 
     },
 
     {
-        "_id":1,
+        "_id":2,
         "name":"Pilers",
         "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
         "availableItem":50,
-        "min-purse":"40",
+        "minPurse":"40",
         "price":"45"
 
     },
 
     {
-        "_id":1,
+        "_id":3,
         "name":"Pilers",
         "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
         "availableItem":50,
-        "min-purse":"40",
+        "minPurse":"40",
         "price":"45"
 
     },
 
     {
-        "_id":1,
+        "_id":4,
         "name":"Pilers",
         "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
         "availableItem":50,
-        "min-purse":"40",
+        "minPurse":"40",
         "price":"45"
 
     },
 
     {
-        "_id":1,
+        "_id":5,
         "name":"Pilers",
         "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
         "availableItem":50,
-        "min-purse":"40",
+        "minPurse":"40",
         "price":"45"
 
     },
 
     {
-        "_id":1,
+        "_id":6,
         "name":"Pilers",
         "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
         "availableItem":50,
-        "min-purse":"40",
+        "minPurse":"40",
+        "price":"45"
+
+    },
+    {
+        "_id":7,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "minPurse":"40",
+        "price":"45"
+
+    },
+    {
+        "_id":8,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "minPurse":"40",
+        "price":"45"
+
+    },
+    {
+        "_id":9,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "minPurse":"40",
+        "price":"45"
+
+    },
+    {
+        "_id":10,
+        "name":"Pilers",
+        "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
+        "availableItem":50,
+        "minPurse":"40",
         "price":"45"
 
     },
 
     {
-        "_id":1,
+        "_id":11,
         "name":"Pilers",
         "img":"https://i.ibb.co/fMnLN7V/pliers.jpg",
         "availableItem":50,
-        "min-purse":"40",
+        "minPurse":"40",
         "price":"45"
 
     }

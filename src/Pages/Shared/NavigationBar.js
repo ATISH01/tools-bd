@@ -37,7 +37,8 @@ const NavigationBar = () => {
                         {menu}
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+               
+                <Link to='/' class="btn btn-ghost normal-case text-xl">Tolsen Tools</Link>
             </div>
             
             <div class="navbar-end hidden lg:flex">
