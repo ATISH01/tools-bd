@@ -1,13 +1,20 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import OrderRow from './OrderRow';
 
-const AllOrder = () => {
-    const { data: orders, isLoading } = useQuery('order', () => fetch('http://localhost:5000/order')
+import UserRow from './UserRow';
+
+const AllUser = () => {
+    const { data: users, isLoading ,refetch} = useQuery('order', () => fetch('http://localhost:5000/user',{
+        method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+    })
         .then(res => res.json()))
     if (isLoading) {
         return;
     }
+   
     return (
         <div class="overflow-x-auto">
             <table class="table w-full">
@@ -17,12 +24,12 @@ const AllOrder = () => {
                         <th></th>
                         <th>Name</th>
                         <th>Job</th>
-                        <th>Favorite Color</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        orders.map(order=><OrderRow order={order}></OrderRow>)
+                        users.map(user=><UserRow user={user} refetch={refetch}></UserRow>)
                     }
                 </tbody>
             </table>
@@ -30,4 +37,4 @@ const AllOrder = () => {
     );
 };
 
-export default AllOrder;
+export default AllUser;
