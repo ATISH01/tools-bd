@@ -6,6 +6,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../../firebse.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import useToken from '../../Hooks/useToken';
 
 
 
@@ -19,7 +20,7 @@ const Login = () => {
         eloading,
         eerror,
       ] = useSignInWithEmailAndPassword(auth);
-      
+     const[token]=useToken(euser || guser) 
     const formSchema = Yup.object().shape({
         email: Yup.string().email().required('Input Valid Email'),
     })
@@ -36,7 +37,7 @@ const Login = () => {
     }
     const location = useLocation();
     const from = location?.state?.from.pathname || '/';
-    if(guser||euser){
+    if(token){
         navigate(from, { replace: true })
     }
     

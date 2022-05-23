@@ -10,6 +10,7 @@ import Dashboard from './Pages/DashBoard/Dashboard';
 import MyOrders from './Pages/DashBoard/MyOrders';
 import Review from './Pages/DashBoard/Review';
 import MyProfile from './Pages/DashBoard/MyProfile';
+import AllOrder from './Pages/DashBoard/AllOrder';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<Review></Review>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='allOrder' element={<AllOrder></AllOrder>}></Route>
         </Route>
       </Routes>
     </div>
