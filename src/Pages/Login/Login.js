@@ -27,7 +27,7 @@ const Login = () => {
     const { register, handleSubmit, reset, formState } = useForm(formOptions)
     const { errors } = formState;
 
-    const onSubmit = async userData => {
+    const onSubmit =  userData => {
        
         signInWithEmailAndPassword(userData.email,userData.password);
         console.log(userData);

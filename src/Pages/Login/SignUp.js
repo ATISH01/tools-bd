@@ -1,21 +1,24 @@
 import React from 'react';
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebse.init';
+import useToken from '../../Hooks/useToken';
 
 
 const Signup = () => {
+    const navigate=useNavigate()
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    
     const [updateProfile, updating, uperror] = useUpdateProfile(auth);
-
+    const[token]=useToken(user);
     const formSchema = Yup.object().shape({
         email: Yup.string().email().required('Input Valid Email'),
         password: Yup.string()
@@ -33,8 +36,11 @@ const Signup = () => {
         console.log(userData);
         await createUserWithEmailAndPassword(userData.email, userData.password);
         await updateProfile({ displayName: userData.name });
-    }
 
+    }
+  if(token){
+    navigate('/')
+  }
     return (
         <div>
             <div className='flex justify-center items-center h-screen'>

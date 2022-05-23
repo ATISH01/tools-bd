@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
-import Review from './Review';
+
 
 const ReviewCard = ({ order }) => {
+
     const [ratings,setRatings] = useState('');
-    console.log(ratings);
+    
     const { itemName ,_id} = order;
     const ratingChanged = (newRating) => {
         setRatings(newRating);
@@ -36,8 +37,10 @@ const ReviewCard = ({ order }) => {
         <div>
             <div class="card rounded-none bg-base-100 shadow-xl">
                 <div class="card-body">
+                    <h1>Review our Item</h1>
                     <h2 class="card-title">{itemName}</h2>
-                    <textarea class="input input-bordered rounded-none input-accent w-full max-w-xs" ref={reviewRef} type="text" />
+                    
+                    <input class="input input-bordered rounded-none input-accent w-full max-w-xs" ref={reviewRef} type="text" />
                     <ReactStars
                         count={5}
                         onChange={ratingChanged}
