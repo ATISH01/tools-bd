@@ -6,9 +6,9 @@ const AddProduct = () => {
     const { errors } = formState;
     const onSubmit = async userData => {
         console.log(userData);
-        const url = 'http://localhost:5000/orders';
+        const url = 'http://localhost:5000/tools';
 
-        /* fetch(url, {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -20,7 +20,7 @@ const AddProduct = () => {
                 console.log('success', data);
 
             })
- */
+ 
     }
     return (
         <div className='p-6'>
