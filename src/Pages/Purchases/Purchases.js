@@ -6,9 +6,14 @@ import { useParams } from 'react-router-dom';
 import auth from '../../firebse.init';
 
 const Purchases = () => {
+    const [counter, setCounter] = useState(0);
+    const [iname, setItem] = useState(0);
+
     const [user] = useAuthState(auth);
     const [plusError, setPlusError] = useState('');
+
     const [minusError, setMinusError] = useState('');
+
     const [singleItem, setSingleItem] = useState([])
     const { Id } = useParams();
     const { _id, name, img, price, availableItem
@@ -17,81 +22,22 @@ const Purchases = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/tools/${Id}`)
             .then(res => res.json())
-            .then(data => setSingleItem(data))
+            .then(data => {setSingleItem(data)
+                })
     }, [Id])
 
-    const minus = (ID) => {
-        setPlusError('')
-
-        const i = singleItem.selected--;
-        console.log(i);
-        const min = minPurse;
-        console.log(min);
-        if (i > min) {
-            // console.log(`{id:${i}}`);
-            console.log(i);
-
-
-            const url = `http://localhost:5000/tools/${ID}`;
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(singleItem)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log('success', data);
-                    setSingleItem({ ...singleItem, selected: singleItem.selected })
-                })
-        }
-        else {
-            setMinusError('Follow the minimum order')
-            return;
-        }
-    }
-
-    const plus = (ID) => {
-        setMinusError('');
-
-        const i = singleItem.selected++;
-        const max = availableItem;
-        console.log(max);
-        if (i < max) {
-            console.log(`{id:${i}}`);
-
-
-            const url = `http://localhost:5000/tools/${ID}`;
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(singleItem)
-            })
-                .then(res => res.json())
-                .then(data => {
-
-                    setSingleItem({ ...singleItem, selected: singleItem.selected })
-                })
-        }
-        else {
-            setPlusError('You can not select more then available');
-            return;
-        };
-    }
-    /* const [input, setInput] = useState(0)
-    const inputValue = e => {
-        setInput(e.target.value);
-        console.log(input); */
 
     const { register, handleSubmit, reset, formState } = useForm()
     const { errors } = formState;
+
+    console.log(name);
     const onSubmit = async userData => {
+       
         console.log(userData);
+        const Data = { itemName: { name }, cart: { counter }, ...userData }
+        console.log(Data);
         const url = 'http://localhost:5000/orders';
-        
+
         fetch(url, {
             method: 'POST',
             headers: {
@@ -102,9 +48,37 @@ const Purchases = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                
+
             })
 
+    }
+
+
+
+    const increase = () => {
+        setMinusError('');
+        if (counter < availableItem) {
+            setCounter(count => parseInt(count) + 1);
+
+        }
+        else {
+            setPlusError('You can not select more then available');
+            return;
+        }
+    };
+    const decrease = () => {
+        setPlusError('')
+
+        if (counter > minPurse) {
+            setCounter(count => count - 1);
+        }
+        else {
+            setMinusError('Follow the minimum order')
+            return;
+        }
+    };
+    const changeValue = (e) => {
+        setCounter(e.target.value);
     }
 
     return (
@@ -117,17 +91,17 @@ const Purchases = () => {
                     <p className='text-xl my-3'>Price:-<span className='border-2 border-black rounded mx-2'>  {price}$</span></p>
                     <p className='text-xl my-3'>Avialable:-<span className='border-2 border-black rounded mx-2'>  {availableItem}</span></p>
                     <p className='text-xl'>MinmumPurchaseQuantity:-<span className='border-2 border-black rounded mx-2'>  {minPurse}</span></p>
-                    <p className='text-xl my-2'>Product You Selected:<span className='border-2 border-black rounded mx-2'>  {selected} </span></p>
+                    {/* <p className='text-xl my-2'>Product You Selected:<span className='border-2 border-black rounded mx-2'>  {selected} </span></p> */}
                     <div>
 
                         <div class="input-group number-spinner">
-                            <button disabled={minusError} onClick={() => minus(_id)} class="btn btn-default text-2xl">-</button>
-                            {/* <input  min={minPurse} class="form-control text-center" /> */}
-                            <button disabled={plusError} onClick={() => plus(_id)} class="btn btn-default text-2xl">+</button>
-
+                            <button disabled={minusError} onClick={decrease} class="btn btn-default text-2xl">-</button>
+                            <input onChange={changeValue} value={counter} class="form-control text-center" />
+                            <button disabled={plusError} onClick={increase} class="btn btn-default text-2xl">+</button>
+                            <p>{plusError}</p>
+                            <p>{minusError}</p>
                         </div>
-                        <p>{plusError}</p>
-                        <p>{minusError}</p>
+
                     </div>
                 </div>
                 <div >
@@ -138,7 +112,7 @@ const Purchases = () => {
                                 <label class="label">
                                     <span class="label-text">Item Name</span>
                                 </label>
-                                <input {...register("itemName")} type="text" value={name} placeholder="Name" class="input input-bordered" />
+                                <input {...register("itemName")} type="text"  placeholder="Name" class="input input-bordered" />
                             </div>
                             <div class="form-control">
                                 <label class="label">
@@ -163,10 +137,19 @@ const Purchases = () => {
                                     <span class="label-text">Address</span>
                                 </label>
                                 <input type="text" placeholder="address" class="input input-bordered" />
-                                
+
                             </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Cart</span>
+                                </label>
+                                <input value={counter} {...register("cart")} type="text" placeholder="address" class="input input-bordered" />
+
+                            </div>
+                            {counter > availableItem && <p>Item you selected is Avialable</p>}
+                            {counter < minPurse && <p>Follow the minimum quantity</p>}
                             <div class="form-control mt-6">
-                                <button class="btn btn-primary">Purchase</button>
+                                <button disabled={counter > availableItem} class="btn btn-primary">Purchase</button>
                             </div>
                         </div>
                     </form>

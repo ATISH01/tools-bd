@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 
 const AddProduct = () => {
     const { register, handleSubmit, reset, formState } = useForm()
@@ -18,7 +19,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-
+                swal("Done!", "Item Successfully Added!", "success");
             })
  
     }
@@ -37,7 +38,7 @@ const AddProduct = () => {
                         <label class="label">
                             <span class="label-text">Price</span>
                         </label>
-                        <input {...register("price", { required: true })} type="text" placeholder="Name" class="input input-bordered" />
+                        <input {...register("price", { required: true })} type="text" placeholder="Price" class="input input-bordered" />
                     </div>
                     <div class="form-control">
                         <label class="label">
@@ -49,7 +50,7 @@ const AddProduct = () => {
                         <label class="label">
                             <span class="label-text">Quantity</span>
                         </label>
-                        <input  {...register("quentity", { required: true })} type="text" placeholder="Phone" class="input input-bordered input-accent w-full" />
+                        <input  {...register("quentity", { required: true })} type="text" placeholder="Quantity" class="input input-bordered input-accent w-full" />
                     </div>
                     <div class="form-control">
                         <label class="label">

@@ -1,6 +1,7 @@
 import React from 'react';
+import swal from 'sweetalert';
 
-const UserRow = ({user,refetch}) => {
+const UserRow = ({user,refetch,index}) => {
     
     const {email,role}=user;
     const makeAdmin =()=>{
@@ -12,13 +13,13 @@ const UserRow = ({user,refetch}) => {
         })
         .then(res=>{
             if(res.status === 403){
-                alert('Failed')
+                swal("Good job!", "You clicked the button!", "warning");
             }
             return res.json()})
         .then(data=>{
             if(data.modifiedCount > 0){
                 refetch();
-                alert('Success');
+                swal("Success!", "Admin added sucessfully!", "success");
             }
             refetch()
         })
@@ -26,9 +27,11 @@ const UserRow = ({user,refetch}) => {
     return (
         
             <tr>
+                <th>{index + 1}</th>
                 <th>{email}</th>
-                <td>{role!=='admin' &&  <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}</td>
-                <td><button class="btn btn-xs">Remove User</button></td>
+                <td>{role!=='admin' &&  <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}
+                <button  class="ml-3 btn btn-xs">Remove User</button></td>
+                <td></td>
                 
             </tr>
       
