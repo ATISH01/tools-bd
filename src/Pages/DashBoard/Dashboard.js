@@ -8,24 +8,24 @@ const Dashboard = () => {
     const [user]=useAuthState(auth);
     const [admin]=useAdmin(user);
     return (
-        <div class="drawer drawer-mobile">
-            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content ">
+        <div className="drawer drawer-mobile">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content ">
                <Outlet></Outlet>
                 
 
             </div>
-            <div class="drawer-side">
-                <label for="my-drawer-2" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+            <div className="drawer-side">
+                <label for="my-drawer-2" className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                    
                     <li><Link to='/dashboard'>My Profile</Link></li>
-                    <li>{!admin&&<Link to='/dashboard/review'>Review</Link>}</li>
-                    <li>{!admin&&<Link to='/dashboard/myOrders'>My Orders</Link>}</li>
-                    <li>{admin && <Link to='/dashboard/allOrder'>Manage AllOrder</Link>}</li>
-                    <li>{admin && <Link to='/dashboard/allUser'>Make Admin</Link>}</li>
-                    <li>{admin && <Link to='/dashboard/addProduct'>Add Product</Link>}</li>
-                    <li>{admin && <Link to='/dashboard/manageProduct'>ManageProduct</Link>}</li>
+                    <li className={!admin?'':'hidden'}><Link to='/dashboard/review'>Review</Link></li>
+                    <li className={!admin?'':'hidden'}><Link to='/dashboard/myOrders'>My Orders</Link></li>
+                    <li className={admin?'':'hidden'}><Link to='/dashboard/allOrder'>Manage AllOrder</Link></li>
+                    <li className={admin?'':'hidden'}><Link to='/dashboard/allUser'>Make Admin</Link></li>
+                    <li className={admin?'':'hidden'}> <Link to='/dashboard/addProduct'>Add Product</Link></li>
+                    <li className={admin?'':'hidden'}> <Link to='/dashboard/manageProduct'>ManageProduct</Link></li>
                 </ul>
 
             </div>

@@ -11,10 +11,13 @@ const AllReviews = () => {
     }
     return (
         
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 px-12 mx-auto p-6">
+            <div>
+                <h1 className='underline-offset-1 text-4xl bold text-center font-bold'>Customers Review</h1>
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 px-12 mx-auto p-6 ">
                 {
                     reviews.map(review=><ReviewCard reviews={review}></ReviewCard>)
                 }
+            </div>
             </div>
         
     );

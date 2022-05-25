@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm, useWatch } from 'react-hook-form';
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebse.init';
 
 const Purchases = () => {
     const [counter, setCounter] = useState(0);
-    const [iname, setItem] = useState(0);
+    const navigate=useNavigate();
 
     const [user] = useAuthState(auth);
     const [plusError, setPlusError] = useState('');
@@ -49,6 +49,7 @@ const Purchases = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
+                navigate('/dashboard/myOrders')
 
             })
 
@@ -83,8 +84,8 @@ const Purchases = () => {
     }
 
     return (
-        <div class="hero min-h-screen bg-base-200 ">
-            <div class=" hero-content flex-col lg:flex-row-reverse gap-11">
+        <div className="hero min-h-screen bg-base-200 ">
+            <div className=" hero-content flex-col lg:flex-row-reverse gap-11">
                 <div className=''>
                     <img className='lg:max-w-md max-w-sm' src={img} alt="" />
                     <p className='text-3xl'>{name}</p>
@@ -95,10 +96,10 @@ const Purchases = () => {
                     {/* <p className='text-xl my-2'>Product You Selected:<span className='border-2 border-black rounded mx-2'>  {selected} </span></p> */}
                     <div>
 
-                        <div class="input-group number-spinner mt-6">
-                            <button disabled={minusError} onClick={decrease} class="btn btn-warning rounded text-2xl">-</button>
-                            <input onChange={changeValue} value={counter} class="form-control text-center" />
-                            <button disabled={plusError} onClick={increase} class="btn btn-warning rounded text-2xl">+</button>
+                        <div className="input-group number-spinner mt-6">
+                            <button disabled={minusError} onClick={decrease} className="btn btn-warning rounded text-2xl">-</button>
+                            <input onChange={changeValue} value={counter} className="form-control text-center" />
+                            <button disabled={plusError} onClick={increase} className="btn btn-warning rounded text-2xl">+</button>
                             <p>{plusError}</p>
                             <p>{minusError}</p>
                         </div>
@@ -106,57 +107,57 @@ const Purchases = () => {
                     </div>
                 </div>
                 <div >
-                    <h1 class="text-2xl my-10 font-bold">Provide information to confirm Your Order</h1>
-                    <form onSubmit={handleSubmit(onSubmit)} class="card  w-full shadow-2xl bg-base-100">
-                        <div class="card-body">
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Item Name</span>
+                    <h1 className="text-2xl my-10 font-bold">Provide information to confirm Your Order</h1>
+                    <form onSubmit={handleSubmit(onSubmit)} className="card  w-full shadow-2xl bg-base-100">
+                        <div className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Item Name</span>
                                 </label>
-                                <input {...register("itemName")} value={name} required type="text"  placeholder="Name" class="input input-bordered" />
+                                <input {...register("itemName")} value={name} required type="text"  placeholder="Name" className="input input-bordered" />
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Customer Name</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Customer Name</span>
                                 </label>
-                                <input {...register("customerName", { required: true })} type="text" value={user.displayName} placeholder="Name" class="input input-bordered" />
+                                <input {...register("customerName", { required: true })} type="text" value={user.displayName} placeholder="Name" className="input input-bordered" />
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Email</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
                                 </label>
-                                <input {...register("email", { required: true })} value={user.email} type="text" placeholder="email" class="input input-bordered" />
+                                <input {...register("email", { required: true })} value={user.email} type="text" placeholder="email" className="input input-bordered" />
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Phone</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Phone</span>
                                 </label>
-                                <input  {...register("phone", { required: true })} type="text" placeholder="Phone" class="input input-bordered input-accent w-full" />
+                                <input  {...register("phone", { required: true })} type="text" placeholder="Phone" className="input input-bordered input-accent w-full" />
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Price</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Price</span>
                                 </label>
-                                <input  {...register("price", { required: true })} type="text" placeholder="Price" class="input input-bordered input-accent w-full" />
+                                <input  {...register("price", { required: true })} type="text" placeholder="Price" className="input input-bordered input-accent w-full" />
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Address</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Address</span>
                                 </label>
-                                <input type="text" placeholder="address" class="input input-bordered" />
+                                <input type="text" placeholder="address" className="input input-bordered" />
 
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Cart</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Cart</span>
                                 </label>
-                                <input value={counter} {...register("cart")} type="text" placeholder="address" class="input input-bordered" />
+                                <input value={counter} {...register("cart")} type="text" placeholder="address" className="input input-bordered" />
 
                             </div>
                             {counter > availableItem && <p>Item you selected is Avialable</p>}
                             {counter < minPurse && <p>Follow the minimum quantity</p>}
-                            <div class="form-control mt-6">
-                                <button disabled={counter > availableItem} class="btn btn-warning">Purchase</button>
+                            <div className="form-control mt-6">
+                                <button disabled={counter > availableItem} className="btn btn-warning">Purchase</button>
                             </div>
                         </div>
                     </form>

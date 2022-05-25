@@ -35,19 +35,19 @@ const ReviewCard = ({ order }) => {
     }
     return (
         <div>
-            <div class="card rounded-none bg-base-100 shadow-xl">
-                <div class="card-body">
+            <div className="card rounded-none bg-base-100 shadow-xl">
+                <div className="card-body">
                     <h1>Review our Item</h1>
-                    <h2 class="card-title">{itemName}</h2>
+                    <h2 className="card-title">{itemName}</h2>
                     
-                    <input class="input input-bordered rounded-none input-accent w-full max-w-xs" ref={reviewRef} type="text" />
+                    <input className="input input-bordered rounded-none input-accent w-full max-w-xs" ref={reviewRef} type="text" />
                     <ReactStars
                         count={5}
                         onChange={ratingChanged}
                         size={24}
                         activeColor="#ffd700"
                     />
-                        <button onClick={()=>reviews(_id)} class="w-50 btn btn-xs">Submit</button>
+                        <button onClick={()=>reviews(_id)} className="w-50 btn btn-xs">Submit</button>
                     
                 </div>
             </div>

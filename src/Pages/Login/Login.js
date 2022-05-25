@@ -44,21 +44,21 @@ const Login = () => {
     
     return (
         <div className='flex justify-center items-center h-screen'>
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="card-body">
-                    <h2 class="text-center text-2xl font-bold">Login</h2>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="text-center text-2xl font-bold">Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-5">
                         <div>
-                        <input {...register("email", { required: true })} type="text" placeholder="Email" class="input input-bordered input-accent w-full max-w-xs" />
+                        <input {...register("email", { required: true })} type="text" placeholder="Email" className="input input-bordered input-accent w-full max-w-xs" />
                         <p><small>{errors.email?.message}</small></p>
                         </div>
-                        <input  {...register("password", { required: true })} type="text" placeholder="Password" class="input input-bordered input-accent w-full max-w-xs" />
+                        <input  {...register("password", { required: true })} type="text" placeholder="Password" className="input input-bordered input-accent w-full max-w-xs" />
                         <p>{eerror?.message && 'Invalid Email or Password'}</p>
-                        <button class="btn btn-outline"  type="submit">Login</button>
+                        <button className="btn btn-outline"  type="submit">Login</button>
                     </form>
                     <p>New to doctors portal? <Link to='/signup'>Create new account</Link></p>
-                    <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn btn-outline">With Google</button>
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">With Google</button>
 
 
                 </div>

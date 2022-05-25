@@ -10,8 +10,8 @@ const AllProducts = () => {
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-1 px-12 mx-auto'>
             
             {
-                products.slice(0,8).map(product=>
-                <ProductsCard product={product}></ProductsCard>)
+                products.slice(0,4).map(product=>
+                <ProductsCard product={product} key={product._id}></ProductsCard>)
             }
         </div>
     );

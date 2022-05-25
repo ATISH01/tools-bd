@@ -15,7 +15,7 @@ const Signup = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth,{ sendEmailVerification: true });
     
     const [updateProfile, updating, uperror] = useUpdateProfile(auth);
     const[token]=useToken(user);
@@ -44,24 +44,24 @@ const Signup = () => {
     return (
         <div>
             <div className='flex justify-center items-center h-screen'>
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="text-center text-2xl font-bold">SignUp</h2>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body">
+                        <h2 className="text-center text-2xl font-bold">SignUp</h2>
                         <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-5">
-                            <input {...register("name", { required: true })} type="text" placeholder="Email" class="input input-bordered input-accent w-full max-w-xs" />
+                            <input {...register("name", { required: true })} type="text" placeholder="Email" className="input input-bordered input-accent w-full max-w-xs" />
                             <div>
-                                <input {...register("email", { required: true })} type="text" placeholder="Email" class="input input-bordered input-accent w-full max-w-xs" />
+                                <input {...register("email", { required: true })} type="text" placeholder="Email" className="input input-bordered input-accent w-full max-w-xs" />
                                 <p><small>{errors.email?.message}</small></p>
                             </div>
                             <div>
-                                <input  {...register("password", { required: true })} type="text" placeholder="Password" class="input input-bordered input-accent w-full max-w-xs"
+                                <input  {...register("password", { required: true })} type="text" placeholder="Password" className="input input-bordered input-accent w-full max-w-xs"
                                 />
                                 <small className='text-red-500'>{errors.password?.message && "Password is required"}</small>
                             </div>
-                            <input  {...register("confirmPassword", { required: true })} type="text" placeholder="ConfirmPassword" class="input input-bordered input-accent w-full max-w-xs"
+                            <input  {...register("confirmPassword", { required: true })} type="text" placeholder="ConfirmPassword" className="input input-bordered input-accent w-full max-w-xs"
                             />
                             <small className='text-red-500'>{errors.confirmPassword?.message}</small>
-                            <button class="btn btn-outline" type="submit">Sign Up</button>
+                            <button className="btn btn-outline" type="submit">Sign Up</button>
                         </form>
                         <p>New to doctors portal? <Link to='/login'>Already have an account? Login</Link></p>
                     </div>

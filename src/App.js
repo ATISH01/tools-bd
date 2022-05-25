@@ -15,6 +15,9 @@ import AllUser from './Pages/DashBoard/AllUser';
 import AddProduct from './Pages/DashBoard/AddProduct';
 import ManageProduct from './Pages/DashBoard/ManageProduct';
 import Payment from './Pages/DashBoard/Payment';
+import NotfoundPage from './Pages/NotfoundPage';
+import Blogs from './Pages/Blogs';
+import MyPortfolio from './Pages/MyPortfolio';
 
 function App() {
   return (
@@ -39,6 +42,9 @@ function App() {
           <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
         </Route>
+        <Route path='*' element={<NotfoundPage></NotfoundPage>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
       </Routes>
     </div>
   );

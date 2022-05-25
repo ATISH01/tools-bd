@@ -1,7 +1,10 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const CheckoutForm = ({orders}) => {
+    const navigate=useNavigate();
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -66,8 +69,10 @@ const CheckoutForm = ({orders}) => {
             console.log(paymentIntent);
             setTransactionId(paymentIntent.id)
             setSucess('Congrats, Your payment is compelete')
-
-
+            swal("Congratulations!", "Your payment is done", "success", {
+                button: "Ok",
+              });
+              navigate('/dashboard/myOrders')
             const payment = {
                 orders: _id,
                 transactionId: paymentIntent.id

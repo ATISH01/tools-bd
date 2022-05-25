@@ -38,8 +38,8 @@ const AddProduct = () => {
 
     }
     return (
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div className="overflow-x-auto">
+            <table className="table w-full">
                 <thead>
                     <tr>
                         <th></th>
@@ -55,7 +55,7 @@ const AddProduct = () => {
                             <th>1</th>
                             <td>{product.name}</td>
                             <td>{product.price}</td>
-                            <td><button onClick={()=>deleteItem(product._id)} class="btn btn-xs btn-error">Delete</button></td>
+                            <td><button onClick={()=>deleteItem(product._id)} className="btn btn-xs btn-error">Delete</button></td>
                         </tr>)
                     }
 
