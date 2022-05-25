@@ -9,7 +9,7 @@ const Summery = () => {
                                     <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/medium_stat_cards_alternate_style-svg1dark.svg" alt="icon"/>
                                 </div>
                                 <div class="pl-3 pr-10 mt-1">
-                                    <h3 tabindex="0" class="focus:outline-none font-normal leading-4 text-gray-800 dark:text-gray-100 text-base">Profit Earned</h3>
+                                    <h3 tabindex="0" class="">Profit Earned</h3>
                                     <div class="flex items-end mt-4">
                                         <h2 tabindex="0" class="focus:outline-none text-indigo-700 dark:text-indigo-600 text-2xl leading-normal font-bold">2,330</h2>
                                         <p tabindex="0" class="focus:outline-none ml-2 mb-1 text-sm text-gray-600 dark:text-gray-400">from 2,125</p>
@@ -32,7 +32,7 @@ const Summery = () => {
                                     <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/medium_stat_cards_alternate_style-svg1dark.svg" alt="icon"/>
                                 </div>
                                 <div class="pl-3 pr-10 mt-1">
-                                    <h3 tabindex="0" class="focus:outline-none font-normal leading-4 text-gray-800 dark:text-gray-100 text-base">Average Click Rate</h3>
+                                    <h3 tabindex="0" class="">Average Click Rate</h3>
                                     <div class="flex items-end mt-4">
                                         <h2 tabindex="0" class="focus:outline-none text-indigo-700 dark:text-indigo-600 text-2xl leading-normal font-bold">22.3%</h2>
                                         <p tabindex="0" class="focus:outline-none ml-2 mb-1 text-sm text-gray-600 dark:text-gray-400">from 21.2%</p>
@@ -55,7 +55,7 @@ const Summery = () => {
                                     <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/medium_stat_cards_alternate_style-svg1dark.svg" alt="icon"/>
                                 </div>
                                 <div class="pl-3 pr-10 mt-1">
-                                    <h3 tabindex="0" class="focus:outline-none font-normal leading-4 text-gray-800 dark:text-gray-100 text-base">Total Sales</h3>
+                                    <h3 tabindex="0" class="">Total Sales</h3>
                                     <div class="flex items-end mt-4">
                                         <h2 tabindex="0" class="focus:outline-none text-indigo-700 dark:text-indigo-600 text-2xl leading-normal font-bold">2,330</h2>
                                         <p tabindex="0" class="focus:outline-none ml-2 mb-1 text-sm text-gray-600 dark:text-gray-400">from 2,850</p>
@@ -76,7 +76,7 @@ const Summery = () => {
                                 <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/medium_stat_cards_alternate_style-svg1.svg" alt="icon"/>
                                     <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/medium_stat_cards_alternate_style-svg1dark.svg" alt="icon"/>
                                 <div class="pl-3 pr-10 mt-1">
-                                    <h3 tabindex="0" class="focus:outline-none font-normal leading-4 text-gray-800 dark:text-gray-100 text-base">Profit Earned</h3>
+                                    <h3 tabindex="0" class="">Profit Earned</h3>
                                     <div class="flex items-end mt-4">
                                         <h2 tabindex="0" class="focus:outline-none text-indigo-700 dark:text-indigo-600 text-2xl leading-normal font-bold">$1200</h2>
                                         <p tabindex="0" class="focus:outline-none ml-2 mb-1 text-sm text-gray-600 dark:text-gray-400">from $800</p>

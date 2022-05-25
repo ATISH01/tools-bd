@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 
 import { useParams } from 'react-router-dom';
 import auth from '../../firebse.init';
@@ -31,6 +31,7 @@ const Purchases = () => {
     const { errors } = formState;
 
     console.log(name);
+    
     const onSubmit = async userData => {
        
         console.log(userData);
@@ -94,10 +95,10 @@ const Purchases = () => {
                     {/* <p className='text-xl my-2'>Product You Selected:<span className='border-2 border-black rounded mx-2'>  {selected} </span></p> */}
                     <div>
 
-                        <div class="input-group number-spinner">
-                            <button disabled={minusError} onClick={decrease} class="btn btn-default text-2xl">-</button>
+                        <div class="input-group number-spinner mt-6">
+                            <button disabled={minusError} onClick={decrease} class="btn btn-warning rounded text-2xl">-</button>
                             <input onChange={changeValue} value={counter} class="form-control text-center" />
-                            <button disabled={plusError} onClick={increase} class="btn btn-default text-2xl">+</button>
+                            <button disabled={plusError} onClick={increase} class="btn btn-warning rounded text-2xl">+</button>
                             <p>{plusError}</p>
                             <p>{minusError}</p>
                         </div>
@@ -112,7 +113,7 @@ const Purchases = () => {
                                 <label class="label">
                                     <span class="label-text">Item Name</span>
                                 </label>
-                                <input {...register("itemName")} type="text"  placeholder="Name" class="input input-bordered" />
+                                <input {...register("itemName")} value={name} required type="text"  placeholder="Name" class="input input-bordered" />
                             </div>
                             <div class="form-control">
                                 <label class="label">
@@ -134,6 +135,12 @@ const Purchases = () => {
                             </div>
                             <div class="form-control">
                                 <label class="label">
+                                    <span class="label-text">Price</span>
+                                </label>
+                                <input  {...register("price", { required: true })} type="text" placeholder="Price" class="input input-bordered input-accent w-full" />
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
                                     <span class="label-text">Address</span>
                                 </label>
                                 <input type="text" placeholder="address" class="input input-bordered" />
@@ -149,7 +156,7 @@ const Purchases = () => {
                             {counter > availableItem && <p>Item you selected is Avialable</p>}
                             {counter < minPurse && <p>Follow the minimum quantity</p>}
                             <div class="form-control mt-6">
-                                <button disabled={counter > availableItem} class="btn btn-primary">Purchase</button>
+                                <button disabled={counter > availableItem} class="btn btn-warning">Purchase</button>
                             </div>
                         </div>
                     </form>

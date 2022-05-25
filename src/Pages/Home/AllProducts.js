@@ -5,6 +5,7 @@ import ProductsCard from './ProductsCard';
 const AllProducts = () => {
     const[products]=useAllProducts()
     
+    
     return (
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-1 px-12 mx-auto'>
             

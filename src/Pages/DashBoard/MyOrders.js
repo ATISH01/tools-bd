@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import auth from '../../firebse.init';
 
@@ -26,12 +26,12 @@ const MyOrders = () => {
             })
                 .then(res => {
                     console.log('res', res);
-                    if (res.status === 401||res.status === 403) {
+                    if (res.status === 401 || res.status === 403) {
                         navigate('/')
                         signOut(auth);
                         localStorage.removeItem('accessToken');
                     }
-                    
+
                     return res.json()
                 })
                 .then(data => setOrders(data))
@@ -42,7 +42,7 @@ const MyOrders = () => {
     /* if(isLoading){
         return;
     } */
-
+    console.log(orders);
     const CancelItem = id => {
         // confirmation alert 
         swal({
@@ -76,7 +76,7 @@ const MyOrders = () => {
 
 
     }
-
+    console.log(orders);
     return (
         <div>
             <h2>Apointment:{orders?.length}</h2>
@@ -102,9 +102,14 @@ const MyOrders = () => {
                                 <td>{a.email}</td>
                                 <td>{a.phone}</td>
                                 <td>
-                                    <button onClick={() => CancelItem(a._id)} className='btn btn-xs btn-error mr-2 '>Cancel</button>
-                                    <button className='btn btn-xs btn-success'>pay</button>
-
+                                    <button disabled={a.paid} onClick={() => CancelItem(a._id)} className='btn btn-xs btn-error mr-2 '>Cancel</button>
+                                    
+                                
+                                </td>
+                                <td>
+                                    {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
+                                    {(a.price && a.paid) && <span className='text-success'>Paid</span>
+                                    }
                                 </td>
                             </tr>)}
 
