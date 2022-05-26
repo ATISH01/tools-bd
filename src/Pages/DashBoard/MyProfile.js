@@ -12,7 +12,7 @@ const MyProfile = () => {
   useEffect(() => {
     const email = (user.email);
     console.log(email);
-    fetch(`http://localhost:5000/profile/${email}`, {
+    fetch(`https://shrouded-sierra-24769.herokuapp.com/profile/${email}`, {
       method: 'GET'
     })
       .then(res => res.json())
@@ -20,7 +20,7 @@ const MyProfile = () => {
   }, [])
   const onSubmit = userData => {
     console.log(userData);
-    const url = `http://localhost:5000/profile/${user.email}`;
+    const url = `https://shrouded-sierra-24769.herokuapp.com/profile/${user.email}`;
 
     fetch(url, {
       method: 'PUT',

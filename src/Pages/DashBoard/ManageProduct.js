@@ -15,7 +15,7 @@ const AddProduct = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    const url = `http://localhost:5000/tools/${id}`;
+                    const url = `https://shrouded-sierra-24769.herokuapp.com/tools/${id}`;
                     fetch(url, {
                         method: "DELETE"
                     })

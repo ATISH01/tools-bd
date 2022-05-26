@@ -14,7 +14,7 @@ const CheckoutForm = ({orders}) => {
     const {price,itemName,email,_id}=orders;
 
     useEffect(()=>{
-        fetch('http://localhost:5000/create-payment-intent',{
+        fetch('https://shrouded-sierra-24769.herokuapp.com/create-payment-intent',{
             method: 'POST',
             headers:{
                 'content-type':'application/json',
@@ -78,7 +78,7 @@ const CheckoutForm = ({orders}) => {
                 transactionId: paymentIntent.id
             }
             console.log(payment);
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://shrouded-sierra-24769.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

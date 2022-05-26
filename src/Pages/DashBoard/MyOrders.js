@@ -10,7 +10,7 @@ import auth from '../../firebse.init';
 const MyOrders = () => {
     const navigate = useNavigate()
     const [user] = useAuthState(auth);
-    /* const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/orders')
+    /* const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://shrouded-sierra-24769.herokuapp.com/orders')
     .then(res => res.json())); */
     const [orders, setOrders] = useState([])
 
@@ -18,7 +18,7 @@ const MyOrders = () => {
 
         const getMyOrders = async () => {
             const email = user.email;
-            fetch(`http://localhost:5000/orders?email=${email}`, {
+            fetch(`https://shrouded-sierra-24769.herokuapp.com/orders?email=${email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -54,7 +54,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    const url = `http://localhost:5000/orders/${id}`;
+                    const url = `https://shrouded-sierra-24769.herokuapp.com/orders/${id}`;
                     fetch(url, {
                         method: "DELETE"
                     })

@@ -7,7 +7,7 @@ const AddProduct = () => {
     const { errors } = formState;
     const onSubmit = async userData => {
         console.log(userData);
-        const url = 'http://localhost:5000/tools';
+        const url = 'https://shrouded-sierra-24769.herokuapp.com/tools';
 
         fetch(url, {
             method: 'POST',

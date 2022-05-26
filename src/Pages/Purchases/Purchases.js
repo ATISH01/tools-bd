@@ -20,7 +20,7 @@ const Purchases = () => {
         , minPurse, selected
     } = singleItem;
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${Id}`)
+        fetch(`https://shrouded-sierra-24769.herokuapp.com/tools/${Id}`)
             .then(res => res.json())
             .then(data => {setSingleItem(data)
                 })
@@ -37,7 +37,7 @@ const Purchases = () => {
         console.log(userData);
         const Data = { itemName: { name }, cart: { counter }, ...userData }
         console.log(Data);
-        const url = 'http://localhost:5000/orders';
+        const url = 'https://shrouded-sierra-24769.herokuapp.com/orders';
 
         fetch(url, {
             method: 'POST',
@@ -157,7 +157,7 @@ const Purchases = () => {
                             {counter > availableItem && <p>Item you selected is Avialable</p>}
                             {counter < minPurse && <p>Follow the minimum quantity</p>}
                             <div className="form-control mt-6">
-                                <button disabled={counter > availableItem} className="btn btn-warning">Purchase</button>
+                                <button disabled={counter > availableItem || counter<minPurse} className="btn btn-warning">Purchase</button>
                             </div>
                         </div>
                     </form>

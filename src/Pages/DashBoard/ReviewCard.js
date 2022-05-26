@@ -17,7 +17,7 @@ const ReviewCard = ({ order }) => {
         const data ={
             itemName,review,ratings,id
         }
-        const url = 'http://localhost:5000/reviews';
+        const url = 'https://shrouded-sierra-24769.herokuapp.com/reviews';
         
         fetch(url, {
             method: 'POST',

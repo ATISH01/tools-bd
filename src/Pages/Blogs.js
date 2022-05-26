@@ -15,6 +15,7 @@ const Blogs = () => {
             <h1 className='text-2xl mt-5'>4. Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts</h1>
             <p>If we don not use sate we did not get the value when we need and we cannot update the value we have.So we use state to set a value that we can get time from it.And when need to change we can change the value of state.</p>
             <h1 className='text-2xl mt-5'>5.You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h1>
+            <p>find() method returns the elements from the array which pasess the test.It's doesn't change the original arary.So we need to loop through the array to check each element that if they matches with desire element by find() method.</p>
             <h1 className='text-2xl mt-5'>6.What is a unit test? Why should write unit tests?</h1>
             <p>It is a testing that software developers do, in which they test samll part of function, procedures or interfaces to know that all implementation are working perfectly.</p>
             <p>To make sure that implemented code are working fine developers write unit tests.To detect bugs in future this is most important to write unit tests.Sometimes developers write unit tests first, then write the code. This approach is also known as test-driven development </p>

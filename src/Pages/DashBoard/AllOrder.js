@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import OrderRow from './OrderRow';
 
 const AllOrder = () => {
-    const { data: orders, isLoading,refetch } = useQuery('order', () => fetch('http://localhost:5000/order')
+    const { data: orders, isLoading,refetch } = useQuery('order', () => fetch('https://shrouded-sierra-24769.herokuapp.com/order')
         .then(res => res.json()))
     if (isLoading) {
         return;
@@ -20,7 +20,7 @@ const AllOrder = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    const url = `http://localhost:5000/orders/${id}`;
+                    const url = `https://shrouded-sierra-24769.herokuapp.com/orders/${id}`;
                     fetch(url, {
                         method: "DELETE"
                     })

@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import ReviewCard from './ReviewCard';
 
 const AllReviews = () => {
-    const{data: reviews, isLoading}=useQuery('reviews',()=>fetch('http://localhost:5000/reviews')
+    const{data: reviews, isLoading}=useQuery('reviews',()=>fetch('https://shrouded-sierra-24769.herokuapp.com/reviews')
     .then(res=>res.json()))
     console.log(reviews);
     if(isLoading){
