@@ -18,6 +18,7 @@ import Payment from './Pages/DashBoard/Payment';
 import NotfoundPage from './Pages/NotfoundPage';
 import Blogs from './Pages/Blogs';
 import MyPortfolio from './Pages/MyPortfolio';
+import RequireAdmin from './Pages/RequireAdmin';
 
 function App() {
   return (
@@ -36,11 +37,15 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='review' element={<Review></Review>}></Route>
           <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
-          <Route path='allOrder' element={<AllOrder></AllOrder>}></Route>
-          <Route path='allUser' element={<AllUser></AllUser>}></Route>
+          <Route path='allOrder' element={<RequireAdmin>
+            <AllOrder></AllOrder>
+          </RequireAdmin>}></Route>
+          <Route path='allUser' element={<RequireAdmin>
+            <AllUser></AllUser>
+          </RequireAdmin>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
-          <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
+          <Route path='manageProduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
         </Route>
         <Route path='*' element={<NotfoundPage></NotfoundPage>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>

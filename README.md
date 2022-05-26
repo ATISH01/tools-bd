@@ -5,7 +5,7 @@ The website is about a industry that makes handtools and supply the products to 
 *****
 ## Websites features and functionality
 *****
-*The website build with ReactJS and tailwind CSS
+* The website build with ReactJS and tailwind CSS
 * MongoDB is used as real databse system is used.
 * Admin panel is implemented.
 * Here new item can be added to databse by user.
